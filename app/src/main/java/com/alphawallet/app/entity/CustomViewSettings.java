@@ -47,7 +47,8 @@ public class CustomViewSettings
     );
 
     public static final List<Long> alwaysVisibleChains = Arrays.asList(
-            EthereumNetworkBase.MAINNET_ID
+            EthereumNetworkBase.MAINNET_ID,
+            EthereumNetworkBase.RUPAYA_ID
     );
 
     public static boolean alwaysShow(long chainId)

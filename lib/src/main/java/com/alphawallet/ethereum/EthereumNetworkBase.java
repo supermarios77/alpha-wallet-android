@@ -6,6 +6,8 @@ package com.alphawallet.ethereum;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class EthereumNetworkBase
 { // implements EthereumNetworkRepositoryType
@@ -52,6 +54,7 @@ public abstract class EthereumNetworkBase
     public static final long MANTLE_TESTNET_ID = 5003;
     public static final long MINT_ID = 185;
     public static final long MINT_SEPOLIA_TESTNET_ID = 1687;
+    public static final long RUPAYA_ID = 499L;
 
 
     public static final String MAINNET_RPC_URL = "https://mainnet.infura.io/v3/da3717f25f824cc1baa32d812386d93f";
@@ -100,6 +103,7 @@ public abstract class EthereumNetworkBase
     public static final String MANTLE_TESTNET_RPC = "https://rpc.sepolia.mantle.xyz";
     public static final String MINT_MAINNET_RPC = "https://global.rpc.mintchain.io";
     public static final String MINT_SEPOLIA_RPC = "https://sepolia-testnet-rpc.mintchain.io";
+    public static final String RUPAYA_RPC_URL = "https://rpc.rupaya.io";
 
 
     static Map<Long, NetworkInfo> networkMap = new LinkedHashMap<Long, NetworkInfo>()
@@ -197,6 +201,8 @@ public abstract class EthereumNetworkBase
                     MINT_ID, false));
             put(MINT_SEPOLIA_TESTNET_ID, new NetworkInfo("Mint Sepolia (Test)", "ETH", MINT_SEPOLIA_RPC, "https://sepolia-testnet-explorer.mintchain.io/tx/",
                     MINT_SEPOLIA_TESTNET_ID, false));
+            put(RUPAYA_ID, new NetworkInfo("Rupaya", "RUPAYA", RUPAYA_RPC_URL, "https://explorer.rupaya.io/tx/",
+                    RUPAYA_ID, false));
         }
     };
 
