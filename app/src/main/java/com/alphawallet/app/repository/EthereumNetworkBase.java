@@ -441,7 +441,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         {
             put(MAINNET_ID, R.drawable.ic_token_eth);
             put(CLASSIC_ID, R.drawable.ic_icons_network_etc); //classic_logo
-            put(RUPAYA_ID, R.drawable.ic_token_eth);
+            put(RUPAYA_ID, R.drawable.ic_rupaya_logo);
             put(GNOSIS_ID, R.drawable.ic_icons_network_gnosis);
             put(GOERLI_ID, R.drawable.ic_goerli);
             put(BINANCE_MAIN_ID, R.drawable.ic_binance_logo);
@@ -491,7 +491,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         {
             put(MAINNET_ID, R.drawable.ic_icons_network_eth);
             put(CLASSIC_ID, R.drawable.ic_icons_network_etc);
-            put(RUPAYA_ID, R.drawable.ic_token_eth);
+            put(RUPAYA_ID, R.drawable.ic_rupaya_logo);
             put(GNOSIS_ID, R.drawable.ic_icons_network_gnosis);
             put(GOERLI_ID, R.drawable.ic_goerli);
             put(BINANCE_MAIN_ID, R.drawable.ic_icons_network_bsc);
