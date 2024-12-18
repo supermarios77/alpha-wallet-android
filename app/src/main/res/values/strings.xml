@@ -106,7 +106,7 @@
     <string name="error_fail_load_tokens">Failed to load tokens list</string>
     <string name="error_create_wallet">Failed to create a wallet</string>
 
-    <string name="app_name" translatable="false">AlphaWallet</string>
+    <string name="app_name" translatable="false">Rupaya Wallet</string>
     <string name="all">All</string>
     <string name="currency">Currencies</string>
     <string name="advanced">Advanced Options</string>
@@ -344,10 +344,10 @@
     <string name="ticket_not_valid">Invalid Token</string>
     <string name="ticket_not_valid_body">No valid contract at this address on this network. The contract could have been terminated or it may be on a different network. Try changing to \'Ropsten (Test)\'.</string>
     <string name="new_version_title">Update Available</string>
-    <string name="new_version">Version update is available on the AlphaWallet website.</string>
+    <string name="new_version">Version update is available on the Rupaya Wallet website.</string>
     <string name="confirm_update">Download and Install</string>
     <string name="dialog_later">Later</string>
-    <string name="alphawallet_update">Alphawallet update</string>
+    <string name="alphawallet_update">Rupaya Wallet update</string>
     <string name="install_error">Unable to update App</string>
     <string name="require_write_permission">Storage write permission not given.</string>
     <string name="dialog_not_again">Skip until next release</string>
@@ -488,7 +488,7 @@
     <string name="set_keystore_password">Set Keystore Password</string>
     <string name="keystore_loss_warning">NOTE: You must remember your password. We do not store your password elsewhere. KeyStore is always encrypted, otherwise whoever has it can gain the money.</string>
     <string name="save_keystore">Save Keystore</string>
-    <string name="do_not_share">Do not share your backup. AlphaWallet team members will not ask for it.</string>
+    <string name="do_not_share">Do not share your backup. Rupaya Wallet team members will not ask for it.</string>
     <string name="enter_seed_phrase">Enter seed phrase</string>
     <string name="seed_phrase_conversion_message">If your seed phrase is not in English, please convert it to English on your own using tools like this https://iancoleman.io/bip39/</string>
     <string name="bad_seed_phrase">Invalid recovery phrase. Please check and try again.</string>
@@ -539,7 +539,7 @@
     <string name="provide_authentication">Provide authentication to create key</string>
     <string name="import_error">Import Error, Try re-import again.</string>
     <string name="watch_exists">Wallet %1$s already imported with key</string>
-    <string name="welcome_to_alphawallet">Welcome to AlphaWallet</string>
+    <string name="welcome_to_alphawallet">Welcome to Rupaya Wallet</string>
     <string name="lock_seed_phrase">Lock Seed Phrase</string>
     <string name="no_key">No Key found</string>
     <string name="pending_transaction">Pending Transaction …</string>
@@ -740,7 +740,7 @@
     <string name="gas_max">Max Fee</string>
     <string name="priority_fee">Priority Fee</string>
     <string name="base_fee">Base Fee</string>
-    <string name="gas_message">Fees are based on current Ethereum blockchain network load. They are not up to AlphaWallet. AlphaWallet uses the %1$s live oracle and updates the gas prices every 15 seconds.</string>
+    <string name="gas_message">Fees are based on current Ethereum blockchain network load. They are not up to Rupaya Wallet. Rupaya Wallet uses the %1$s live oracle and updates the gas prices every 15 seconds.</string>
     <string name="set_your_speed">Set Your Own</string>
     <string name="nonce_optional">Nonce (optional)</string>
     <string name="calc_gas_limit">Calculating Gas Limit</string>
@@ -775,7 +775,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="keep_connect">Keep Connected</string>
     <string name="beware_of_scammers">Beware of scammers!\nDon\'t share seed phrase.</string>
-    <string name="alphawallet_never_ask">AlphaWallet will NEVER ask about your seed phrase (and we only reply to DMs, never DM first).</string>
+    <string name="alphawallet_never_ask">Rupaya Wallet will NEVER ask about your seed phrase (and we only reply to DMs, never DM first).</string>
     <string name="your_seed_phrase">Your seed phrase (do not share with anyone)</string>
     <string name="hide_seed_text">OK, Hide Seed Phrase</string>
     <string name="ens_not_match_wallet">ENS Name does not match wallet address</string>
@@ -933,7 +933,7 @@
     <string name="unable_to_upgrade_key">Unable to upgrade key: %1$s</string>
     <string name="no_key_found">No Key found</string>
     <string name="unable_store_key">Unable to store key: %1$s</string>
-    <string name="title_ens_lookup_warning">ENS Lookup Warning</string>
+    <string name="title_ens_lookup_warning">Rupaya Wallet has detected a discrepancy between ethereum\'s timestamp and your device\'s current time</string>
     <string name="message_ens_node_not_sync">AlphaWallet has detected a discrepancy between ethereum\'s timestamp and your device\'s current time, or possibly the blockchain connection is not synchronized, please check your phone\'s time is correct, or ignore this warning.</string>
     <string name="decrease">Decrease</string>
     <string name="increase">Increase</string>

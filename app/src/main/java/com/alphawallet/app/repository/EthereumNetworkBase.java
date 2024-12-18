@@ -219,8 +219,29 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     //If your wallet prioritises xDai for example, you may want to move the XDAI_ID to the front of this list,
     //Then xDai would appear as the first token at the top of the wallet
     private static final List<Long> hasValue = new ArrayList<>(Arrays.asList(
-            MAINNET_ID, GNOSIS_ID, POLYGON_ID, ROOTSTOCK_MAINNET_ID, CLASSIC_ID, LINEA_ID, BASE_MAINNET_ID, MANTLE_MAINNET_ID, MINT_ID, BINANCE_MAIN_ID, HECO_ID, AVALANCHE_ID,
-            FANTOM_ID, OPTIMISTIC_MAIN_ID, CRONOS_MAIN_ID, ARBITRUM_MAIN_ID, PALM_ID, KLAYTN_ID, IOTEX_MAINNET_ID, AURORA_MAINNET_ID, MILKOMEDA_C1_ID, OKX_ID, RUPAYA_ID));
+            RUPAYA_ID,
+            MAINNET_ID,
+            GNOSIS_ID,
+            POLYGON_ID,
+            ROOTSTOCK_MAINNET_ID,
+            CLASSIC_ID,
+            LINEA_ID,
+            BASE_MAINNET_ID,
+            MANTLE_MAINNET_ID,
+            MINT_ID,
+            BINANCE_MAIN_ID,
+            HECO_ID,
+            AVALANCHE_ID,
+            FANTOM_ID,
+            OPTIMISTIC_MAIN_ID,
+            CRONOS_MAIN_ID,
+            ARBITRUM_MAIN_ID,
+            PALM_ID,
+            KLAYTN_ID,
+            IOTEX_MAINNET_ID,
+            AURORA_MAINNET_ID,
+            MILKOMEDA_C1_ID,
+            OKX_ID));
 
     private static final List<Long> testnetList = new ArrayList<>(Arrays.asList(
             SEPOLIA_TESTNET_ID, POLYGON_AMOY_ID, HOLESKY_ID, BASE_TESTNET_ID, MINT_SEPOLIA_TESTNET_ID, GOERLI_ID, BINANCE_TEST_ID,
@@ -249,6 +270,11 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     private static final LongSparseArray<NetworkInfo> builtinNetworkMap = new LongSparseArray<NetworkInfo>()
     {
         {
+            put(RUPAYA_ID, new NetworkInfo("Rupaya", "RUPX",
+                    RUPAYA_RPC_URL,
+                    "https://explorer.rupaya.io/tx/", RUPAYA_ID,
+                    RUPAYA_RPC_URL,
+                    "https://explorer.rupaya.io/api?"));
             put(MAINNET_ID, new NetworkInfo(C.ETHEREUM_NETWORK_NAME, C.ETH_SYMBOL,
                     MAINNET_RPC_URL,
                     "https://cn.etherscan.com/tx/", MAINNET_ID,
@@ -257,11 +283,6 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
                     CLASSIC_RPC_URL,
                     "https://blockscout.com/etc/mainnet/tx/", CLASSIC_ID, CLASSIC_RPC_URL,
                     "https://blockscout.com/etc/mainnet/api?"));
-            put(RUPAYA_ID, new NetworkInfo("Rupaya", "RUPX",
-                    RUPAYA_RPC_URL,
-                    "https://explorer.rupaya.io/tx/", RUPAYA_ID,
-                    RUPAYA_RPC_URL,
-                    "https://explorer.rupaya.io/api?"));
             put(GNOSIS_ID, new NetworkInfo(C.XDAI_NETWORK_NAME, C.xDAI_SYMBOL,
                     XDAI_RPC_URL,
                     "https://gnosis.blockscout.com/tx/", GNOSIS_ID,
@@ -476,7 +497,6 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
             put(LINEA_ID, R.drawable.ic_icons_linea);
             put(LINEA_TEST_ID, R.drawable.ic_icons_linea_testnet);
             put(HOLESKY_ID, R.drawable.ic_icons_holesky);
-            put(POLYGON_TEST_ID, R.drawable.ic_icons_tokens_mumbai);
             put(BASE_MAINNET_ID, R.drawable.ic_base_logo);
             put(BASE_TESTNET_ID, R.drawable.ic_base_test_logo);
             put(MANTLE_MAINNET_ID, R.drawable.ic_mantle_logo);
@@ -815,7 +835,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
                 for (NetworkInfo n : copyList)
                 {
                     boolean isCustom = builtinNetworkMap.indexOfKey(n.chainId) == -1;
-                    NetworkInfo newInfo = new NetworkInfo(n.name, n.symbol, n.rpcServerUrl, n.etherscanUrl, n.chainId, n.backupNodeUrl, n.etherscanAPI, isCustom);
+                    NetworkInfo newInfo = new NetworkInfo(n.name, n.symbol, n.rpcServerUrl, n.etherscanUrl, n.chainId, isCustom ? null : builtinNetworkMap.get(n.chainId).backupNodeUrl, n.etherscanAPI, isCustom);
                     list.add(newInfo);
                 }
                 //record back
@@ -1036,7 +1056,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     @Override
     public Long getDefaultNetwork()
     {
-        return CustomViewSettings.primaryChain;
+        return RUPAYA_ID;
     }
 
     @Override
@@ -1249,12 +1269,12 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     public static List<Long> addDefaultNetworks()
     {
-        return CustomViewSettings.alwaysVisibleChains;
+        return Arrays.asList(RUPAYA_ID);
     }
 
     public static ContractLocator getOverrideToken()
     {
-        return new ContractLocator("", CustomViewSettings.primaryChain, ContractType.ETHEREUM);
+        return new ContractLocator("", RUPAYA_ID, ContractType.ETHEREUM);
     }
 
     @Override
@@ -1304,13 +1324,13 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static Token createCurrencyToken(NetworkInfo network)
     {
-        TokenInfo tokenInfo = new TokenInfo(Address.DEFAULT.toString(), network.name, network.symbol, 18, true, network.chainId);
+        TokenInfo tokenInfo = new TokenInfo(Address.DEFAULT.toString(), network.name, "RUPX", 18, true, network.chainId);
         BigDecimal balance = BigDecimal.ZERO;
-        Token eth = new Token(tokenInfo, balance, 0, network.getShortName(), ContractType.ETHEREUM); //create with zero time index to ensure it's updated immediately
-        eth.setTokenWallet(Address.DEFAULT.toString());
-        eth.setIsEthereum();
-        eth.pendingBalance = balance;
-        return eth;
+        Token rupaya = new Token(tokenInfo, balance, 0, network.getShortName(), ContractType.ETHEREUM);
+        rupaya.setTokenWallet(Address.DEFAULT.toString());
+        rupaya.setIsEthereum();
+        rupaya.pendingBalance = balance;
+        return rupaya;
     }
 
     public Token getBlankOverrideToken()

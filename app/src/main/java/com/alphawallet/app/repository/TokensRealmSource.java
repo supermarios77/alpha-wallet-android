@@ -1588,13 +1588,13 @@ public class TokensRealmSource implements TokenLocalSource
 
     private Token createCurrencyToken(NetworkInfo network, Wallet wallet)
     {
-        TokenInfo tokenInfo = new TokenInfo(wallet.address, network.name, network.symbol, 18, true, network.chainId);
+        TokenInfo tokenInfo = new TokenInfo(wallet.address, network.name, "RUPAYA", 18, true, network.chainId);
         BigDecimal balance = BigDecimal.ZERO;
-        Token eth = new Token(tokenInfo, balance, 0, network.getShortName(), ContractType.ETHEREUM); //create with zero time index to ensure it's updated immediately
-        eth.setTokenWallet(wallet.address);
-        eth.setIsEthereum();
-        eth.pendingBalance = balance;
-        return eth;
+        Token rupaya = new Token(tokenInfo, balance, 0, network.getShortName(), ContractType.ETHEREUM);
+        rupaya.setTokenWallet(wallet.address);
+        rupaya.setIsEthereum();
+        rupaya.pendingBalance = balance;
+        return rupaya;
     }
 
     public TokenGroup getTokenGroup(long chainId, String address, ContractType type)

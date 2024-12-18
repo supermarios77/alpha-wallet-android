@@ -227,7 +227,7 @@ public abstract class C {
     public static final String SIGNAL_NFT_SYNC = "com.alphawallet.SYNC_NFT";
     public static final String SYNC_STATUS = "com.alphawallet.SYNC_STATUS";
 
-    public static final String DEFAULT_GAS_PRICE =     "10000000000";
+    public static final String DEFAULT_GAS_PRICE = "1000000000";
     public static final String DEFAULT_XDAI_GAS_PRICE = "1000000000";
     public static final String DEFAULT_GAS_LIMIT_FOR_TOKENS = "144000";
     public static final String DEFAULT_UNKNOWN_FUNCTION_GAS_LIMIT = "1000000"; //if we don't know the specific function, we default to 1 million gas limit
@@ -235,7 +235,7 @@ public abstract class C {
     public static final long GAS_LIMIT_MIN = 21000L;
     public static final long GAS_LIMIT_DEFAULT = 90000L;
     public static final long GAS_LIMIT_CONTRACT = 1000000L;
-    public static final long GAS_PRICE_MIN = 400000000L;
+    public static final long GAS_PRICE_MIN = 1000000000L;
     public static final int ETHER_DECIMALS = 18;
     public static final long GAS_LIMIT_MAX =          4712380L;  //Max block gas for most chains
     public static final long GAS_LIMIT_MAX_KLAYTN = 100000000L;  //Klaytn gas limit, see https://docs.klaytn.com/klaytn/design/computation/computation-cost
@@ -244,7 +244,7 @@ public abstract class C {
     //FOR DEMOS ETC
     public static final boolean SHOW_NEW_ACCOUNT_PROMPT = false;   //this will switch off the splash screen 'please make a key' message
 
-    public static final String DEFAULT_NETWORK = ETHEREUM_NETWORK_NAME;
+    public static final String DEFAULT_NETWORK = "Rupaya Network";
 
     public static final String TWITTER_PACKAGE_NAME = "com.twitter.android";
     public static final String FACEBOOK_PACKAGE_NAME = "com.facebook.katana";
@@ -340,4 +340,8 @@ public abstract class C {
 
     // shortcuts
     public static final String ACTION_TOKEN_SHORTCUT = "token_shortcut";
+
+    // Add Rupaya constants
+    public static final String RUPAYA_NETWORK_NAME = "Rupaya Network";
+    public static final String RUPAYA_SYMBOL = "RUPX";
 }
