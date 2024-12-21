@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--
+    <!-- Brand Colors - Primary Palette -->
+    <color name="azure">#231861</color>  <!-- Rupaya primary color -->
+    <color name="colorPrimary">@color/azure</color>
+    <color name="colorPrimaryDark">#1A114A</color>
+    <color name="colorAccent">#3B2A9C</color>
+    <color name="ic_launcher_background">@color/white</color>
 
+    <!--
     These colors define the values referenced in the base application theme.
 
     ** ATTENTION **
